@@ -37,7 +37,26 @@
     - You cannot call Eloquent methods (like `save()`) on raw array results.
 
 
-# ESSENTIAL ARTISAN COMMANDS
+# LARAVEL BREEZE
+- What it is:
+    - A minimal, simple implementation of all of Laravel's authentication features (login, registration, password reset, email verification, profile management).
+    - Scaffolds the routes, controllers, and views for you so you don't have to build auth from scratch.
+- Installation:
+    - `composer require laravel/breeze --dev`
+    - `php artisan breeze:install`
+    - Then install frontend dependencies: `npm install && npm run dev`
+- Stacks (choose during install):
+    - Blade: Traditional server-rendered Blade templates (default, simplest).
+    - Livewire: Full-stack reactive components.
+    - React / Vue: SPA-style with Inertia.js.
+- What it generates:
+    - Auth routes (`routes/auth.php`) and controllers (`app/Http/Controllers/Auth/`).
+    - Profile management (`ProfileController`, `ProfileUpdateRequest`).
+    - Views under `resources/views/auth/` and `resources/views/profile/`.
+    - Middleware like `auth` and `verified` protection.
+- Usage notes:
+    - Protect routes with `Route::middleware('auth')->group(...)`.
+    - Breeze is a starting point — customize views and controllers freely; it won't overwrite your edits on future runs unless you re-install.
 - php artisan serve
     - Starts a local development server for your app.
 - php artisan make:model ModelName
